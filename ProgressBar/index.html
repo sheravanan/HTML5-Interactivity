@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Progress bar</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/progress.css" rel="stylesheet"/>
+</head>
+
+<body ng-app="progressbar" ng-controller="progressBarCtrl">
+<!-- contents -->
+	<div class="modal-content modal-sm progressLightBox" ng-show="showUi">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Progress</h4>
+        </div>
+        <div class="modal-body topborder">
+          <progressbar animate="false" value="value" type="{{type}}"  ></progressbar>
+          <span class="center-block" ng-if="status !='completed'">{{statusMessage}} {{value}}% {{status}}</span>
+
+          <span class="center-block" ng-if="status==='completed'">{{statusMessage}} {{value}}% {{status}}
+          <img width="20" height="15" ng-src ="image/tick.png"></span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" value="Reset" ng-disabled="isRunning" ng-click="reset()" class="btn btn-primary center-block" data-dismiss="modal">Reset</button>
+        </div>
+  </div>
+<!-- scripts -->
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services/contentService.js"></script>
+<script src="js/controllers/progressBarCtrl.js"></script>
+<script src="js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
